@@ -32,9 +32,14 @@ struct tokenize {
     int use;
     struct token *next;
     struct token *back;
+<<<<<<< HEAD
 }*temp,*first,*first2,*help,*help1,*help2 , *myfirst;
 
 int checkMain=0 , checkReturn=0;
+=======
+}*temp,*first,*first2,*help,*help1,*help2;
+
+>>>>>>> 7b52b41d562f9a2fa19f80c0393477e83efa3eb6
 FILE *fpIR;
 int flag=0;
 int check_else=0;
@@ -45,12 +50,20 @@ int error=0;
 int enter=1;
 int enter_last=0;
 char include[15][20];
+<<<<<<< HEAD
 char name_table [20][20]; //////esm
 int num_table [20][20]; ///////aval no' bad khatesh
 int table_cont=0;
 
 int main(){
     system("color 47");
+=======
+char name_table [20][20]; //////esm no' meghdar
+int num_table [20][20]; ///////aval no' bad meghdar
+int table_cont=0;
+
+int main(){
+>>>>>>> 7b52b41d562f9a2fa19f80c0393477e83efa3eb6
     fclose (fopen ("IR.txt" , "w"));
     fpIR = fopen ("IR.txt" , "w");
 
@@ -74,6 +87,7 @@ int main(){
     tokenize();
     temp=first;
     load_without_enter();
+<<<<<<< HEAD
 
 
     temp=first;
@@ -91,14 +105,35 @@ int main(){
 
     while (temp->str[0]!='?'){
         printf ("%s" , temp->str);
+=======
+    //printf ("HELLO");
+    //include_load();
+
+    temp=first;
+    //preprocessor();
+
+    //first=temp;
+    while (temp->str[0]!='?'){
+        printf ("%d " , temp->type);
+>>>>>>> 7b52b41d562f9a2fa19f80c0393477e83efa3eb6
         temp=temp->next;
     }
     printf ("%s " , temp->str);
     printf ("\n");
 
+<<<<<<< HEAD
 
     temp=first;
 
+=======
+    //include_load();
+    load_without_enter();
+
+    temp=first;
+
+    //load_without_enter();
+
+>>>>>>> 7b52b41d562f9a2fa19f80c0393477e83efa3eb6
     printf ("\n");
     printf ("\n");
     temp=first;
@@ -111,6 +146,7 @@ int main(){
     if (error == 0){
         i=make_table();
         if (i==1){
+<<<<<<< HEAD
 
             if (check_id()==1){
 
@@ -134,6 +170,19 @@ int main(){
     printf ("\n");
 
     //printf ("%d" , error);
+=======
+            if (check_id()==1){
+                //table_number();
+            }
+        }
+
+    }
+    temp=first;
+    IR_Generation();
+
+    fprintf(fpIR , "RETURN \n\nCALL MAIN ");
+    fclose (fpIR);
+>>>>>>> 7b52b41d562f9a2fa19f80c0393477e83efa3eb6
     return 0;
 }
 
@@ -149,12 +198,20 @@ void load (){
     int k=0, i=0, end, help=0;
     temp=first;
     FILE *fp;
+<<<<<<< HEAD
     fp=fopen ("mytext.txt" , "r");
+=======
+    fp=fopen ("totaldata.txt" , "r");
+>>>>>>> 7b52b41d562f9a2fa19f80c0393477e83efa3eb6
     rewind(fp);
     end = 1;
     while (!feof(fp)){
         a=fgetc(fp);
+<<<<<<< HEAD
         if ((a>=48 && a<=57) || (a>=65 && a<=90) || (a>=97 && a<=122) || a==43 || a==47 || a==41 || a==46 || a==40 || a==35 || a==60 || a== 61 || a==62 || a==123 || a==124 || a==125 || a==59 || a==17 || a==44 || a==39 || a==38 || a==96 || a=='"' || a=='*'){
+=======
+        if ((a>=48 && a<=57) || (a>=65 && a<=90) || (a>=97 && a<=122) || a==43 || a==47 || a==41 || a==46 || a==40 || a==35 || a==60 || a== 61 || a==62 || a==123 || a==124 || a==125 || a==59 || a==17 || a==44 || a==39 || a==38 || a==96 || a=='"'){
+>>>>>>> 7b52b41d562f9a2fa19f80c0393477e83efa3eb6
             if (i==0 && k!=0){
                 help1=temp;
                 temp->next=malloc(sizeof(struct tokenize));
@@ -195,13 +252,20 @@ void load (){
 }
 
 void include_load (){
+<<<<<<< HEAD
     myfirst=first;
+=======
+    first2=first;
+>>>>>>> 7b52b41d562f9a2fa19f80c0393477e83efa3eb6
     int j=0 , end;
     char a;
     int k=0;
 
     //////////////////
+<<<<<<< HEAD
 
+=======
+>>>>>>> 7b52b41d562f9a2fa19f80c0393477e83efa3eb6
     help=malloc(sizeof(struct tokenize));
     temp=help;
     NULLY();
@@ -213,6 +277,7 @@ void include_load (){
     while (include[j][0] != '?'){
         int i=0;
         FILE *fp;
+<<<<<<< HEAD
         //printf ("%s" , include[j]);
         fp=fopen (include[j] , "r");
         if (fp!=NULL){
@@ -241,11 +306,22 @@ void include_load (){
                 else if (a == '\n'){
                     i=0;
                     end=2;
+=======
+        printf ("%s" , include[j]);
+        fp=fopen (include[j] , "r");
+        end = 1;
+        while (!feof(fp)){
+            //printf ("hello");
+            a=fgetc(fp);
+            if ((a>=48 && a<=57) || (a>=65 && a<=90) || (a>=97 && a<=122) || a==43 || a==47 || a==41 || a==46 || a==40 || a==35 || a==60 || a== 61 || a==62 || a==123 || a==124 || a==125 || a==59 || a==17 || a==44 || a==39 || a==38 || a==96 || a=='"'){
+                if (i==0){
+>>>>>>> 7b52b41d562f9a2fa19f80c0393477e83efa3eb6
                     help=temp;
                     temp->next=malloc(sizeof(struct tokenize));
                     temp=temp->next;
                     NULLY();
                     temp->back=help;
+<<<<<<< HEAD
                     temp->next=myfirst;
                     temp->str[0]='\n';
                 }
@@ -259,6 +335,34 @@ void include_load (){
             error++;
             j++;
         }
+=======
+                    temp->next=first2;
+                }
+                temp->str[i]=a;
+                i++;
+                end = 0;
+
+            }
+            else if (a == ' '){
+                i=0;
+                end=1;
+            }
+            else if (a == '\n'){
+                i=0;
+                end=2;
+                help=temp;
+                temp->next=malloc(sizeof(struct tokenize));
+                temp=temp->next;
+                NULLY();
+                temp->back=help;
+                temp->next=first2;
+                temp->str[0]='\n';
+            }
+        }
+        fclose (fp);
+        k=1;
+        j++;
+>>>>>>> 7b52b41d562f9a2fa19f80c0393477e83efa3eb6
     }
 }
 
@@ -268,7 +372,10 @@ void load_without_enter (){
         first=temp->next;
         temp=first;
     }
+<<<<<<< HEAD
     //printf ("hello");
+=======
+>>>>>>> 7b52b41d562f9a2fa19f80c0393477e83efa3eb6
     while (temp->str[0] != '?'){
         if (temp->str[0] == '\n'){
             help1=temp->next;
@@ -282,91 +389,154 @@ void load_without_enter (){
             temp=temp->next;
         }
     }
+<<<<<<< HEAD
     //printf ("hello");
 }
 
 void pretokenize (){
     temp=first;
     while (temp != myfirst){
+=======
+}
+
+void tokenize (){
+    enter=2;
+    temp=first;
+
+    ////////////keywords////////////
+    while (strcmp(temp->str , "?")!=0){
+>>>>>>> 7b52b41d562f9a2fa19f80c0393477e83efa3eb6
         help1=temp->back;
         help2=temp->next;
         if (strcmp(temp->str , "main")==0) {
             temp->type=1;
             temp->attribute=0;
+<<<<<<< HEAD
             temp->line=0;
+=======
+            temp->line=enter;
+>>>>>>> 7b52b41d562f9a2fa19f80c0393477e83efa3eb6
             enter_last=0;
         }
         else if (strcmp(temp->str , "if")==0) {
             temp->type=1;
             temp->attribute=1;
+<<<<<<< HEAD
             temp->line=0;
+=======
+            temp->line=enter;
+>>>>>>> 7b52b41d562f9a2fa19f80c0393477e83efa3eb6
             enter_last=0;
         }
         else if (strcmp(temp->str , "else")==0) {
             temp->type=1;
             temp->attribute=2;
+<<<<<<< HEAD
             temp->line=0;
+=======
+            temp->line=enter;
+>>>>>>> 7b52b41d562f9a2fa19f80c0393477e83efa3eb6
             enter_last=0;
         }
         else if (strcmp(temp->str , "int")==0) {
 
             temp->type=1;
             temp->attribute=3;
+<<<<<<< HEAD
             temp->line=0;
+=======
+            temp->line=enter;
+>>>>>>> 7b52b41d562f9a2fa19f80c0393477e83efa3eb6
             enter_last=0;
         }
         else if (strcmp(temp->str , "float")==0) {
             temp->type=1;
             temp->attribute=4;
+<<<<<<< HEAD
             temp->line=0;
+=======
+            temp->line=enter;
+>>>>>>> 7b52b41d562f9a2fa19f80c0393477e83efa3eb6
             enter_last=0;
         }
         else if (strcmp(temp->str , "char")==0) {
             temp->type=1;
             temp->attribute=5;
+<<<<<<< HEAD
             temp->line=0;
+=======
+            temp->line=enter;
+>>>>>>> 7b52b41d562f9a2fa19f80c0393477e83efa3eb6
             enter_last=0;
         }
         else if (strcmp(temp->str , "bool")==0) {
             temp->type=1;
             temp->attribute=6;
+<<<<<<< HEAD
             temp->line=0;
+=======
+            temp->line=enter;
+>>>>>>> 7b52b41d562f9a2fa19f80c0393477e83efa3eb6
             enter_last=0;
         }
         else if (strcmp(temp->str , "void")==0) {
             temp->type=1;
             temp->attribute=7;
+<<<<<<< HEAD
             temp->line=0;
+=======
+            temp->line=enter;
+>>>>>>> 7b52b41d562f9a2fa19f80c0393477e83efa3eb6
             enter_last=0;
         }
         else if (strcmp(temp->str , "NULL")==0) {
             temp->type=1;
             temp->attribute=8;
+<<<<<<< HEAD
             temp->line=0;
+=======
+            temp->line=enter;
+>>>>>>> 7b52b41d562f9a2fa19f80c0393477e83efa3eb6
             enter_last=0;
         }
         else if (strcmp(temp->str , "while")==0) {
             temp->type=1;
             temp->attribute=9;
+<<<<<<< HEAD
             temp->line=0;
+=======
+            temp->line=enter;
+>>>>>>> 7b52b41d562f9a2fa19f80c0393477e83efa3eb6
             enter_last=0;
         }
         else if (strcmp(temp->str , "true")==0) {
             temp->type=1;
             temp->attribute=10;
+<<<<<<< HEAD
             temp->line=0;
+=======
+            temp->line=enter;
+>>>>>>> 7b52b41d562f9a2fa19f80c0393477e83efa3eb6
             enter_last=0;
         }
         else if (strcmp(temp->str , "false")==0) {
             temp->type=1;
             temp->attribute=11;
+<<<<<<< HEAD
             temp->line=0;
+=======
+            temp->line=enter;
+>>>>>>> 7b52b41d562f9a2fa19f80c0393477e83efa3eb6
             enter_last=0;
         }
         else if (strcmp(temp->str , "return")==0) {
             temp->type=1;
             temp->attribute=12;
+<<<<<<< HEAD
             temp->line=0;
+=======
+            temp->line=enter;
+>>>>>>> 7b52b41d562f9a2fa19f80c0393477e83efa3eb6
             enter_last=0;
         }
 
@@ -374,79 +544,131 @@ void pretokenize (){
         else if (strcmp(temp->str , "+")==0) {
             temp->type=2;
             temp->attribute=1;
+<<<<<<< HEAD
             temp->line=0;
+=======
+            temp->line=enter;
+>>>>>>> 7b52b41d562f9a2fa19f80c0393477e83efa3eb6
             enter_last=0;
         }
         else if (strcmp(temp->str , "-")==0) {
             temp->type=2;
             temp->attribute=2;
+<<<<<<< HEAD
             temp->line=0;
+=======
+            temp->line=enter;
+>>>>>>> 7b52b41d562f9a2fa19f80c0393477e83efa3eb6
             enter_last=0;
         }
         else if (strcmp(temp->str , "/")==0) {
             temp->type=2;
             temp->attribute=3;
+<<<<<<< HEAD
             temp->line=0;
+=======
+            temp->line=enter;
+>>>>>>> 7b52b41d562f9a2fa19f80c0393477e83efa3eb6
             enter_last=0;
         }
         else if (strcmp(temp->str , "*")==0) {
             temp->type=2;
             temp->attribute=4;
+<<<<<<< HEAD
             temp->line=0;
+=======
+            temp->line=enter;
+>>>>>>> 7b52b41d562f9a2fa19f80c0393477e83efa3eb6
             enter_last=0;
         }
         else if (strcmp(temp->str , ">")==0) {
             temp->type=2;
             temp->attribute=5;
+<<<<<<< HEAD
             temp->line=0;
+=======
+            temp->line=enter;
+>>>>>>> 7b52b41d562f9a2fa19f80c0393477e83efa3eb6
             enter_last=0;
         }
         else if (strcmp(temp->str , "<")==0) {
             temp->type=2;
             temp->attribute=6;
+<<<<<<< HEAD
             temp->line=0;
+=======
+            temp->line=enter;
+>>>>>>> 7b52b41d562f9a2fa19f80c0393477e83efa3eb6
             enter_last=0;
         }
         else if (strcmp(temp->str , "==")==0) {
             temp->type=2;
             temp->attribute=7;
+<<<<<<< HEAD
             temp->line=0;
+=======
+            temp->line=enter;
+>>>>>>> 7b52b41d562f9a2fa19f80c0393477e83efa3eb6
             enter_last=0;
         }
         else if (strcmp(temp->str , "!=")==0) {
             temp->type=2;
             temp->attribute=8;
+<<<<<<< HEAD
             temp->line=0;
+=======
+            temp->line=enter;
+>>>>>>> 7b52b41d562f9a2fa19f80c0393477e83efa3eb6
             enter_last=0;
         }
         else if (strcmp(temp->str , "&&")==0) {
             temp->type=2;
             temp->attribute=9;
+<<<<<<< HEAD
             temp->line=0;
+=======
+            temp->line=enter;
+>>>>>>> 7b52b41d562f9a2fa19f80c0393477e83efa3eb6
             enter_last=0;
         }
         else if (strcmp(temp->str , "||")==0) {
             temp->type=2;
             temp->attribute=10;
+<<<<<<< HEAD
             temp->line=0;
+=======
+            temp->line=enter;
+>>>>>>> 7b52b41d562f9a2fa19f80c0393477e83efa3eb6
             enter_last=0;
         }
         else if (strcmp(temp->str , "=")==0) {
             temp->type=2;
             temp->attribute=11;
+<<<<<<< HEAD
             temp->line=0;
+=======
+            temp->line=enter;
+>>>>>>> 7b52b41d562f9a2fa19f80c0393477e83efa3eb6
             enter_last=0;
         }
         else if (strcmp(temp->str , "<=")==0) {
             temp->type=2;
             temp->attribute=12;
+<<<<<<< HEAD
             temp->line=0;
+=======
+            temp->line=enter;
+>>>>>>> 7b52b41d562f9a2fa19f80c0393477e83efa3eb6
             enter_last=0;
         }
         else if (strcmp(temp->str , ">=")==0) {
             temp->type=2;
             temp->attribute=13;
+<<<<<<< HEAD
             temp->line=0;
+=======
+            temp->line=enter;
+>>>>>>> 7b52b41d562f9a2fa19f80c0393477e83efa3eb6
             enter_last=0;
         }
 
@@ -454,55 +676,91 @@ void pretokenize (){
         else if (strcmp(temp->str , "(")==0) {
             temp->type=6;
             temp->attribute=1;
+<<<<<<< HEAD
             temp->line=0;
+=======
+            temp->line=enter;
+>>>>>>> 7b52b41d562f9a2fa19f80c0393477e83efa3eb6
             enter_last=0;
         }
         else if (strcmp(temp->str , ")")==0) {
             temp->type=6;
             temp->attribute=2;
+<<<<<<< HEAD
             temp->line=0;
+=======
+            temp->line=enter;
+>>>>>>> 7b52b41d562f9a2fa19f80c0393477e83efa3eb6
             enter_last=0;
         }
         else if (strcmp(temp->str , "{")==0) {
             temp->type=6;
             temp->attribute=3;
+<<<<<<< HEAD
             temp->line=0;
+=======
+            temp->line=enter;
+>>>>>>> 7b52b41d562f9a2fa19f80c0393477e83efa3eb6
             enter_last=0;
         }
         else if (strcmp(temp->str , "}")==0) {
             temp->type=6;
             temp->attribute=4;
+<<<<<<< HEAD
             temp->line=0;
+=======
+            temp->line=enter;
+>>>>>>> 7b52b41d562f9a2fa19f80c0393477e83efa3eb6
             enter_last=0;
         }
         else if (strcmp(temp->str , ",")==0) {
             temp->type=6;
             temp->attribute=5;
+<<<<<<< HEAD
             temp->line=0;
+=======
+            temp->line=enter;
+>>>>>>> 7b52b41d562f9a2fa19f80c0393477e83efa3eb6
             enter_last=0;
         }
         else if (strcmp(temp->str , ";")==0) {
             temp->type=6;
             temp->attribute=6;
+<<<<<<< HEAD
             temp->line=0;
+=======
+            temp->line=enter;
+>>>>>>> 7b52b41d562f9a2fa19f80c0393477e83efa3eb6
             enter_last=0;
         }
         else if (strcmp(temp->str , "'")==0) {
             temp->type=6;
             temp->attribute=7;
+<<<<<<< HEAD
             temp->line=0;
+=======
+            temp->line=enter;
+>>>>>>> 7b52b41d562f9a2fa19f80c0393477e83efa3eb6
             enter_last=0;
         }
         else if (strcmp(temp->str , "\"")==0) {
             temp->type=6;
             temp->attribute=8;
+<<<<<<< HEAD
             temp->line=0;
+=======
+            temp->line=enter;
+>>>>>>> 7b52b41d562f9a2fa19f80c0393477e83efa3eb6
             enter_last=0;
         }
         else if (strcmp(temp->str , "#")==0) {
             temp->type=6;
             temp->attribute=9;
+<<<<<<< HEAD
             temp->line=0;
+=======
+            temp->line=enter;
+>>>>>>> 7b52b41d562f9a2fa19f80c0393477e83efa3eb6
             enter_last=0;
         }
 
@@ -510,13 +768,21 @@ void pretokenize (){
         else if (C_number()==1) {
             temp->type=4;
             temp->attribute=1;
+<<<<<<< HEAD
             temp->line=0;
+=======
+            temp->line=enter;
+>>>>>>> 7b52b41d562f9a2fa19f80c0393477e83efa3eb6
             enter_last=0;
         }
         else if (C_number()==0) {
             temp->type=4;
             temp->attribute=2;
+<<<<<<< HEAD
             temp->line=0;
+=======
+            temp->line=enter;
+>>>>>>> 7b52b41d562f9a2fa19f80c0393477e83efa3eb6
             enter_last=0;
         }
 
@@ -524,7 +790,11 @@ void pretokenize (){
         else if ((strcmp(help1->str , "'")==0) && (strcmp(help2->str , "'")==0) && (strlen(temp->str)==1)) {
             temp->type=5;
             temp->attribute=0;
+<<<<<<< HEAD
             temp->line=0;
+=======
+            temp->line=enter;
+>>>>>>> 7b52b41d562f9a2fa19f80c0393477e83efa3eb6
             enter_last=0;
         }
 
@@ -532,7 +802,11 @@ void pretokenize (){
         else if (strcmp(temp->str , "\n")==0) {
             temp->type=7;
             temp->attribute=0;
+<<<<<<< HEAD
             temp->line=0;
+=======
+            temp->line=enter;
+>>>>>>> 7b52b41d562f9a2fa19f80c0393477e83efa3eb6
             enter++;
             enter_last++;
         }
@@ -541,11 +815,16 @@ void pretokenize (){
         else if (strcmp(temp->str , "?")!=0){
             temp->type=3;
             temp->attribute=0;
+<<<<<<< HEAD
             temp->line=0;
+=======
+            temp->line=enter;
+>>>>>>> 7b52b41d562f9a2fa19f80c0393477e83efa3eb6
             enter_last=0;
         }
         temp=temp->next;
     }
+<<<<<<< HEAD
 
 }
 
@@ -944,6 +1223,103 @@ int C_character() {
         }
     }
 }
+=======
+}
+
+int preprocessor (){
+    int i , j=0;
+    while (temp->type != 1 ){
+        if (strcmp(temp->str , "#")==0){
+            temp=temp->next;
+            if (strcmp(temp->str , "include")==0){
+                temp=temp->next;
+                if (strcmp(temp->str , "\"")==0){
+                    temp=temp->next;
+                    temp=temp->next;
+                    if (strcmp(temp->str , "\"")==0){
+                        temp=temp->back;
+                        for (i=0 ; i<20 ; i++){
+                            include[j][i]=temp->str[i];
+                        }
+                        printf("%s" , temp->str);
+                        j++;
+                        temp=temp->next;
+                        temp=temp->next;
+                    }
+                }
+            }
+        }
+    }
+    include[j][0]='?';
+return j;
+}
+
+int C_character() {
+    while (strcmp(temp->str , ";")!=0) {
+        temp=temp->next;
+        if (temp->type == 3) {
+            temp=temp->next;
+            if (strcmp(temp->str , "=") == 0){
+                temp=temp->next;
+                if (strcmp(temp->str , "'") == 0) {
+                    temp = temp -> next;
+                    if (temp -> type == 5) {
+                        temp = temp -> next;
+                        if (strcmp(temp->str , "'") == 0) {
+                            temp = temp -> next;
+                            if (strcmp(temp->str , ",") == 0){
+                                continue;
+                            }
+                            else if (strcmp(temp->str , ";") == 0){
+                                go_end();
+                            }
+                            else {
+                                go_end_semy();
+                                error++;
+                            }
+                        }
+                        else{
+                            printf("%d : Expected to see ' c ' , but '%s' have been seen.\n" , temp->line, temp->str);
+                            go_end();
+                            error ++;
+                        }
+                    }
+                    else if (strcmp (temp->str , ";") == 0) {
+                        printf("%d : Correct structure of 'c' is missed.\n" , temp->line);
+                        error ++;
+                    }
+                    else{
+                        printf("%d : Correct structure of 'c' is missed.\n" , temp->line);
+                        go_end();
+                        error ++;
+                    }
+                }
+                else {
+                    printf("%d : Correct structure of 'c' is missed.\n" , temp->line);
+                    go_end();
+                    error ++;
+                }
+            }
+            else if (strcmp (temp->str , ",") == 0){
+                continue;
+            }
+            else if (strcmp (temp->str , ";") == 0) {
+                go_end();
+            }
+            else {
+                printf ("%d : Expected to see ';' or '=' after identifire, but '%s' have been seen.\n" , temp->line, temp->str);
+                go_end();
+                error ++;
+            }
+        }
+        else {
+            error ++;
+            printf ("%d : Expected to see identifire.\n" , temp->line);
+            go_end();
+        }
+    }
+}
+>>>>>>> 7b52b41d562f9a2fa19f80c0393477e83efa3eb6
 
 int C_intigerAndFloat () {
     while (strcmp (temp->str , ";")!=0 && strcmp (temp->str , "?")!=0) {
@@ -968,17 +1344,24 @@ int C_intigerAndFloat () {
                                 printf ("%d : Expected to see ';', but '%s' have been seen.\n" , temp->line, temp->str);
                                 go_end();
                                 error ++;
+<<<<<<< HEAD
                                 break;
+=======
+>>>>>>> 7b52b41d562f9a2fa19f80c0393477e83efa3eb6
                             }
                         }
                         else if (strcmp (temp->str , ";") == 0) {
                             go_end();
+<<<<<<< HEAD
                             break;
+=======
+>>>>>>> 7b52b41d562f9a2fa19f80c0393477e83efa3eb6
                         }
                         else {
                             error ++;
                             go_end();
                             printf ("%d : Expected to see an operator after identifire, but '%s' have been seen.\n", temp->line, temp->str);
+<<<<<<< HEAD
                             break;
                         }
                     }
@@ -990,18 +1373,29 @@ int C_intigerAndFloat () {
                         error++;
                         go_end();
                         break;
+=======
+                        }
+                    }
+                    else if (strcmp(temp->str , ";")==0) {
+>>>>>>> 7b52b41d562f9a2fa19f80c0393477e83efa3eb6
                     }
                 }
                 else {
                     printf ("%d : Expected to see an operator or identifire after '=', but '%s' have been seen.\n", temp->line, temp->str);
                     error ++;
                     go_end();
+<<<<<<< HEAD
                     break;
+=======
+>>>>>>> 7b52b41d562f9a2fa19f80c0393477e83efa3eb6
                 }
             }
             else if (strcmp (temp->str , ";") == 0) {
                 go_end();
+<<<<<<< HEAD
                 break;
+=======
+>>>>>>> 7b52b41d562f9a2fa19f80c0393477e83efa3eb6
 
             }
             else if (strcmp (temp->str , ",") == 0){
@@ -1011,7 +1405,10 @@ int C_intigerAndFloat () {
                 printf ("%d : Expected to see an ';' or '=' after identifire, but '%s' have been seen.\n", temp->line, temp->str);
                 go_end();
                 error ++;
+<<<<<<< HEAD
                 break;
+=======
+>>>>>>> 7b52b41d562f9a2fa19f80c0393477e83efa3eb6
             }
         }
         else if (temp->type == 1 && temp->attribute == 0){
@@ -1027,7 +1424,10 @@ int C_intigerAndFloat () {
             error ++;
             printf("%d : Expected to see an identifire, but '%s' have been seen.\n", temp->line, temp->str);
             go_end();
+<<<<<<< HEAD
             break;
+=======
+>>>>>>> 7b52b41d562f9a2fa19f80c0393477e83efa3eb6
         }
     }
 }
@@ -1112,7 +1512,11 @@ int C_if (){
             }
         }
         else {
+<<<<<<< HEAD
             printf("%d : Expected to see an identifire, but %s have been seen.\n", temp->line, temp->str);
+=======
+            printf("%d : Expected to see an identifire, but %d have been seen.\n", temp->line, temp->str);
+>>>>>>> 7b52b41d562f9a2fa19f80c0393477e83efa3eb6
             error ++;
             go_end2();
         }
@@ -1201,7 +1605,11 @@ int C_number () {
             j++;
         }
     }
+<<<<<<< HEAD
     if (j!=strlen(temp->str) || temp->str[0]=='.')
+=======
+    if (j!=strlen(temp->str))
+>>>>>>> 7b52b41d562f9a2fa19f80c0393477e83efa3eb6
         return -1; //addad nabood
     else if (flt==1 && j==strlen(temp->str))
         return 0; //ashari bood
@@ -1217,7 +1625,11 @@ int C_name() {
             j++;
         }
     }
+<<<<<<< HEAD
     if (j!=strlen(temp->str) || k==j || (temp->str[0]<=57 && temp->str[0]>=48)) //k=j baraye emsi ke kolan addade
+=======
+    if (j!=strlen(temp->str) || k==j) //k=j baraye emsi ke kolan addade
+>>>>>>> 7b52b41d562f9a2fa19f80c0393477e83efa3eb6
         return 0; //esmet ghalate
     return 1;
 }
@@ -1229,12 +1641,18 @@ void C_math(){
 }
 
 void go_end(){
+<<<<<<< HEAD
     while(temp->str[0]!=';' && temp->str[0]!='?' && temp->type!=1) {
         temp=temp->next;
     }
     if (temp->type==1){
         temp=temp->back;
     }
+=======
+    while(temp->str[0]!=';' && temp->str[0]!='?') {
+        temp=temp->next;
+    }
+>>>>>>> 7b52b41d562f9a2fa19f80c0393477e83efa3eb6
 }
 
 void go_end_semy(){
@@ -1276,9 +1694,13 @@ void go_end3 (){
     while(temp->str[0]!=';' && temp->str[0]!='?' && temp->type!=1) {
         temp=temp->next;
     }
+<<<<<<< HEAD
     if (temp->type==1){
         temp=temp->back;
     }
+=======
+    temp=temp->back;
+>>>>>>> 7b52b41d562f9a2fa19f80c0393477e83efa3eb6
 
 }
 
@@ -1286,12 +1708,19 @@ void go_end2(){
     /*while(strcmp(temp->str , "{")!=0 && strcmp(temp->str , "}")!=0 && strcmp(temp->str , "?")!=0) {
         temp=temp->next;
     }*/
+<<<<<<< HEAD
     while(temp->str[0]!=';' && temp->str[0]!='?' && temp->type!=1) {
         temp=temp->next;
     }
     if (temp->type==1){
         temp=temp->back;
     }
+=======
+    while(temp->str[0]!=';' && temp->str[0]!='?' && temp->type==1 && temp->type==3) {
+        temp=temp->next;
+    }
+    temp=temp->back;
+>>>>>>> 7b52b41d562f9a2fa19f80c0393477e83efa3eb6
 }
 
 int C_voidAndMain() {
@@ -1299,7 +1728,10 @@ int C_voidAndMain() {
     temp = temp->next;
         if(temp->type == 1 && temp->attribute==0){
             temp = temp->next;
+<<<<<<< HEAD
             checkMain=1;
+=======
+>>>>>>> 7b52b41d562f9a2fa19f80c0393477e83efa3eb6
             if(temp->type == 6 && temp->attribute==1){
                 temp = temp->next;
                 if(temp->type == 6 && temp->attribute==2){
@@ -1359,9 +1791,15 @@ void end_akolad (){
         temp=temp->next;
     }
     if (strcmp(temp->str , "?")==0)
+<<<<<<< HEAD
         printf("%d : Brace has not be closed('}' expected).\n", temp->line);
     else
         printf("%d : Brace has not be closed('}' expected).\n", temp->line);
+=======
+        printf("%d : Brace has not be closed('{' expected).\n", temp->line);
+    else
+        printf("%d : Brace has not be closed('{' expected).\n", temp->line);
+>>>>>>> 7b52b41d562f9a2fa19f80c0393477e83efa3eb6
     }
 
 int C_expression() {
@@ -1388,35 +1826,50 @@ int C_expression() {
                                             printf("%d : Correct structure of min/max(num,num) is missed.\n",temp->line);
                                             go_end();
                                             error ++;
+<<<<<<< HEAD
                                             break;
+=======
+>>>>>>> 7b52b41d562f9a2fa19f80c0393477e83efa3eb6
                                         }
                                     }
                                     else{
                                         printf("%d : Correct structure of min/max(num,num) is missed.\n",temp->line);
                                         go_end();
                                         error ++;
+<<<<<<< HEAD
                                         break;
+=======
+>>>>>>> 7b52b41d562f9a2fa19f80c0393477e83efa3eb6
                                     }
                                 }
                                 else{
                                     printf("%d : Correct structure of min/max(num,num) is missed.\n",temp->line);
                                     go_end();
                                     error ++;
+<<<<<<< HEAD
                                     break;
+=======
+>>>>>>> 7b52b41d562f9a2fa19f80c0393477e83efa3eb6
                                 }
                             }
                             else{
                                 printf("%d : Correct structure of min/max(num,num) is missed.\n",temp->line);
                                 go_end();
                                 error ++;
+<<<<<<< HEAD
                                 break;
+=======
+>>>>>>> 7b52b41d562f9a2fa19f80c0393477e83efa3eb6
                             }
                         }
                         else{
                             printf("%d : Correct structure of min/max(num,num) is missed.\n",temp->line);
                             go_end();
                             error ++;
+<<<<<<< HEAD
                             break;
+=======
+>>>>>>> 7b52b41d562f9a2fa19f80c0393477e83efa3eb6
                         }
                     }
                     /*else if(strcmp(temp->str , "true") == 0 || strcmp(temp->str , "false") == 0){
@@ -1434,7 +1887,10 @@ int C_expression() {
                                 printf("%d : Expected to see an identifire or a number after operator, but '%s' have been seen.\n", temp->line, temp->str);
                                 go_end();
                                 error ++;
+<<<<<<< HEAD
                                 break;
+=======
+>>>>>>> 7b52b41d562f9a2fa19f80c0393477e83efa3eb6
                             }
                         }
                         else if(temp->type == 6 && temp->attribute == 6){
@@ -1444,7 +1900,10 @@ int C_expression() {
                             printf("%d : Expected to see an operator or ';' after identifires and numbers, but '%s' have been seen.\n", temp->line, temp->str);
                             error ++;
                             go_end();
+<<<<<<< HEAD
                             break;
+=======
+>>>>>>> 7b52b41d562f9a2fa19f80c0393477e83efa3eb6
                         }
                     }
                 }
@@ -1459,35 +1918,50 @@ int C_expression() {
                             printf("%d : Correct structure of \"char = ' c '\" is missed.\n" , temp->line);
                             error ++;
                             go_end();
+<<<<<<< HEAD
                             break;
+=======
+>>>>>>> 7b52b41d562f9a2fa19f80c0393477e83efa3eb6
                         }
                     }
                     else{
                         printf("%d : Correct structure of \"char = ' c '\" is missed.\n" , temp->line);
                         error ++;
                         go_end();
+<<<<<<< HEAD
                         break;
+=======
+>>>>>>> 7b52b41d562f9a2fa19f80c0393477e83efa3eb6
                     }
                 }
                 else{
                     printf("%d : Expected to see an identifire or a number or min/max or 'c' but '%s' have been seen.\n", temp->line, temp->str);
                     go_end();
                     error ++;
+<<<<<<< HEAD
                     break;
+=======
+>>>>>>> 7b52b41d562f9a2fa19f80c0393477e83efa3eb6
                 }
             }
             else{
                 printf("%d : Expected to see '=' after identifre but '%s' have been seen.\n", temp->line, temp->str);
                 error ++;
                 go_end();
+<<<<<<< HEAD
                 break;
+=======
+>>>>>>> 7b52b41d562f9a2fa19f80c0393477e83efa3eb6
             }
         }
         else{
             printf("%d : Expected to see an identifre at the strat of expression, but '%s' have been seen.\n", temp->line, temp->str);
             go_end();
             error ++;
+<<<<<<< HEAD
             break;
+=======
+>>>>>>> 7b52b41d562f9a2fa19f80c0393477e83efa3eb6
         }
     }
 }
@@ -1495,6 +1969,7 @@ int C_expression() {
 void check (){
     temp=first;
     while (strcmp (temp->str , "?")!=0){
+<<<<<<< HEAD
         if (strcmp(temp->str , "}")==0 || strcmp(temp->str , "{")==0 || strcmp(temp->str , ";")==0) {
         }
         else if (strcmp(temp->str , "if")==0 || strcmp(temp->str , "while")==0) {
@@ -1832,6 +2307,62 @@ void semantic (){
 int make_table (){
     int check=1;
     int check2 = 1;
+=======
+        if (strcmp(temp->str , "}")==0 || strcmp(temp->str , "{")==0) {
+        }
+        else if (strcmp(temp->str , "if")==0) {
+            C_if();
+        }
+        else if (strcmp(temp->str , "else")==0) {
+            C_else();
+        }
+        else if (strcmp(temp->str , "int")==0) {
+            C_intigerAndFloat();
+        }
+        else if (strcmp(temp->str , "float")==0) {
+            C_intigerAndFloat();
+        }
+        else if (strcmp(temp->str , "char")==0) {
+            C_character();
+        }
+        else if (temp->type==1 && temp->attribute==6){
+            C_boolean();
+        }
+        else if (strcmp(temp->str , "#")==0){
+            preprocessor();
+        }
+        else if (strcmp(temp->str , "void")==0){
+            C_voidAndMain();
+        }
+        else if (temp->type==3 && strcmp(temp->str , "?")!=0){
+            C_expression();
+        }
+        else {
+            printf ("%d : no match!\n" , temp->line);
+            error ++;
+        }
+
+        if (temp->str[0]!='?'){
+            temp=temp->next;
+        }
+    }
+    if (error == 0){
+        printf ("\nNO ERROR! ");
+    }
+    else if (error == 1 ){
+        printf ("\n%d ERROR FOUND! \n" , error);
+    }
+    else {
+        printf ("\n%d ERRORS FOUND! \n" , error);
+    }
+}
+
+void semantic (){
+}
+
+void make_table (){
+    int check=1 , check2 = 1;
+>>>>>>> 7b52b41d562f9a2fa19f80c0393477e83efa3eb6
 
     temp=first;
 
@@ -1849,9 +2380,15 @@ int make_table (){
                         check2=0;
                     }
                     else{
+<<<<<<< HEAD
                         strcpy(name_table[table_cont] , temp->str);
                         num_table[table_cont][0]=3;
                         num_table[table_cont][1]=temp->line;
+=======
+                        //printf ("jj");
+                        strcpy(name_table[table_cont] , temp->str);
+                        num_table[table_cont][0]=3;
+>>>>>>> 7b52b41d562f9a2fa19f80c0393477e83efa3eb6
                         check=go_virgool();
                         table_cont++;
                     }
@@ -1898,6 +2435,7 @@ int make_table (){
                 }
             }
         }
+<<<<<<< HEAD
         temp=temp->next;
     }
 
@@ -1909,11 +2447,21 @@ int make_table (){
     }
     return check2;
 
+=======
+        //printf ("%s" , temp->str);
+        temp=temp->next;
+    }
+    printf ("%d" , check2);
+    return check2;
+
+
+>>>>>>> 7b52b41d562f9a2fa19f80c0393477e83efa3eb6
 }
 
 int check_id (){
     temp=first;
     int check=1;
+<<<<<<< HEAD
     int hhelp;
     while (temp->str[0] != '?'){
         if (temp->type==3){
@@ -1922,11 +2470,18 @@ int check_id (){
 ;            if (name_exist()==0 || ( (num_table[hhelp][1]) > (temp->line) )){
                 printf ("%d : moteghayer '%s' ghablan tarif nashode ast.\n" , temp->line , temp->str);
                 error++;
+=======
+    while (temp->str[0] != '?'){
+        if (temp->type==3){
+            if (name_exist()==0){
+                printf ("%d : moteghayer '%s' ghablan tarif nashode ast.\n" , temp->line , temp->str);
+>>>>>>> 7b52b41d562f9a2fa19f80c0393477e83efa3eb6
                 check=0;
             }
         }
         temp=temp->next;
     }
+<<<<<<< HEAD
     if (error == 1){
         printf ("1 ERROR FOUND !! \n");
     }
@@ -1940,6 +2495,31 @@ int states (){
     ////////////state 1 \\\\\\\\\\\\\
 
     help=temp;
+=======
+    return check;
+}
+
+void change_number (){
+
+
+
+
+
+}
+
+void table_number (){
+
+
+
+}
+
+int states (){
+
+    ////////////state 1 \\\\\\\\\\\\\
+
+    help=temp;
+
+>>>>>>> 7b52b41d562f9a2fa19f80c0393477e83efa3eb6
     if (temp->type==3){
         temp=temp->next;
         if (temp->type==2 && temp->attribute==11){
@@ -2017,6 +2597,10 @@ int states (){
                 temp=temp->next;
                 temp=help;
                 return 9;
+<<<<<<< HEAD
+=======
+
+>>>>>>> 7b52b41d562f9a2fa19f80c0393477e83efa3eb6
             }
             else if (temp->type==4){
                 temp=temp->next;
@@ -2025,11 +2609,20 @@ int states (){
             }
         }
     }
+<<<<<<< HEAD
+=======
+
+
+>>>>>>> 7b52b41d562f9a2fa19f80c0393477e83efa3eb6
     temp=help;
     return 0;
 
 }
 
+<<<<<<< HEAD
+=======
+
+>>>>>>> 7b52b41d562f9a2fa19f80c0393477e83efa3eb6
 int IR_if (){
     temp=temp->next;
     temp=temp->next;
@@ -2043,6 +2636,10 @@ int IR_if (){
         check_else=1;
     }
     temp=help1;
+<<<<<<< HEAD
+=======
+
+>>>>>>> 7b52b41d562f9a2fa19f80c0393477e83efa3eb6
     if (state_number==7){
         fprintf (fpIR , "IF T%d " , name_index());
         temp=temp->next;
@@ -2081,21 +2678,35 @@ int IR_if (){
 
     fprintf (fpIR , "goto L%d else L%d \nL%d\n\n" , flag , flag+1 ,flag);
     flag=flag+2;
+<<<<<<< HEAD
     IR_Generation();
+=======
+    IR_Generation2();
+
+>>>>>>> 7b52b41d562f9a2fa19f80c0393477e83efa3eb6
     if (check_else == 1){
         fprintf (fpIR , "goto L%d\nL%d\n\n" , flag , flag-1);
         temp=temp->next;
         temp=temp->next;
         temp=temp->next;
+<<<<<<< HEAD
         IR_Generation();
         fprintf (fpIR , "L%d\n" , flag);
         flag=flag+1;
         check_else=0;
         //temp=temp->next;
+=======
+        flag=flag+1;
+        IR_Generation2();
+        fprintf (fpIR , "L%d\n" , flag-1);
+        check_else=0;
+        temp=temp->next;
+>>>>>>> 7b52b41d562f9a2fa19f80c0393477e83efa3eb6
     }
     else {
         fprintf (fpIR , "L%d\n\n" , flag-1);
         check_else=0;
+<<<<<<< HEAD
         //temp=temp->next;
     }
 }
@@ -2150,12 +2761,24 @@ int IR_while (){
 }
 
 void IR_Generation (){
-    while (temp->str[0]!='?' && temp->str[0]!='}'){
+=======
+        temp=temp->next;
+    }
+
+
+}
+
+void IR_Generation (){
+
+
+
+    while (temp->str[0]!='?'){
 
         if (temp->type == 3){
             state_number=states();
-            //printf ("%s" , temp->str);
-            //printf ("%d " , state_number);
+            printf ("%s" , temp->str);
+            printf ("%d " , state_number);
+
             if (state_number==1){
                 temp=temp->next;
                 temp=temp->next;
@@ -2175,6 +2798,7 @@ void IR_Generation (){
                 fprintf (fpIR , "T%d \n\n", name_index());
                 go_end();
             }
+
             else if (state_number==3){
                 temp=temp->next;
                 temp=temp->next;
@@ -2219,6 +2843,8 @@ void IR_Generation (){
                 fprintf(fpIR , "T_%d\n\n" , num);
                 num++;
                 go_end();
+
+
             }
             else if (state_number==6){
                 help1=temp;
@@ -2237,12 +2863,9 @@ void IR_Generation (){
                 go_end();
             }
         }
+
         else if (strcmp(temp->str, "if")==0){
             IR_if();
-        }
-        else if (strcmp(temp->str, "while")==0){
-            IR_while ();
-            temp=temp->back;
         }
         else if (strcmp(temp->str , "void") == 0){
             fprintf(fpIR, "PROCEDURE MAIN\nBEGIN\n\n");
@@ -2250,8 +2873,166 @@ void IR_Generation (){
             temp = temp->next;
             temp = temp->next;
             temp = temp->next;
+            temp = temp->next;
+        }
+
+
+        if (temp->str[0]!='?')
+            temp=temp->next;
+
+
+
+    }
+
+
+
+}
+
+void IR_Generation2 (){
+
+
+
+>>>>>>> 7b52b41d562f9a2fa19f80c0393477e83efa3eb6
+    while (temp->str[0]!='?' && temp->str[0]!='}'){
+
+        if (temp->type == 3){
+            state_number=states();
+<<<<<<< HEAD
+            //printf ("%s" , temp->str);
+            //printf ("%d " , state_number);
+=======
+            printf ("%s" , temp->str);
+            printf ("%d " , state_number);
+
+>>>>>>> 7b52b41d562f9a2fa19f80c0393477e83efa3eb6
+            if (state_number==1){
+                temp=temp->next;
+                temp=temp->next;
+                fprintf (fpIR , "T_%d = %s\n", num , temp->str);
+                temp=temp->back;
+                temp=temp->back;
+                fprintf (fpIR , "T%d = T_%d\n\n", name_index() , num);
+                num++;
+                go_end();
+
+            }
+
+            else if (state_number==2){
+                fprintf (fpIR , "T%d := ", name_index());
+                temp=temp->next;
+                temp=temp->next;
+                fprintf (fpIR , "T%d \n\n", name_index());
+                go_end();
+            }
+<<<<<<< HEAD
+=======
+
+>>>>>>> 7b52b41d562f9a2fa19f80c0393477e83efa3eb6
+            else if (state_number==3){
+                temp=temp->next;
+                temp=temp->next;
+                fprintf(fpIR , "T_%d := %s\n" , num , temp->str);
+                num++;
+                temp=temp->next;
+                temp=temp->next;
+                fprintf(fpIR , "T_%d := %s\n" , num , temp->str);
+                temp=temp->back;
+                help1=temp;
+                temp=temp->back;
+                temp=temp->back;
+                temp=temp->back;
+                fprintf(fpIR , "T%d := T_%d %s T_%d\n\n" , name_index() ,num-1, help1->str , num);
+                num++;
+                go_end();
+            }
+            else if (state_number == 4){
+                fprintf(fpIR , "T%d := ", name_index());
+                temp = temp->next;
+                temp = temp->next;
+                fprintf(fpIR , "T%d ", name_index());
+                temp=temp->next;
+                fprintf(fpIR , "%s ", temp->str);
+                temp = temp->next;
+                fprintf(fpIR , "T%d\n\n", name_index());
+                go_end();
+            }
+            else if (state_number==5){
+                help1=temp;
+                go_end();
+                temp=temp->back;
+                fprintf (fpIR , "T_%d := %s\n" , num , temp->str);
+                temp=help1;
+                fprintf(fpIR , "T%d := ", name_index());
+                temp = temp->next;
+                temp = temp->next;
+                fprintf(fpIR , "T%d ", name_index());
+                temp=temp->next;
+                fprintf(fpIR , "%s ", temp->str);
+                temp=temp->str;
+                fprintf(fpIR , "T_%d\n\n" , num);
+                num++;
+                go_end();
+<<<<<<< HEAD
+=======
+
+
+>>>>>>> 7b52b41d562f9a2fa19f80c0393477e83efa3eb6
+            }
+            else if (state_number==6){
+                help1=temp;
+                temp=temp->next;
+                temp=temp->next;
+                fprintf (fpIR , "T_%d := %s\n" , num , temp->str);
+                temp=help1;
+                fprintf (fpIR , "T%d := T_%d " , name_index() , num);
+                temp=temp->next;
+                temp=temp->next;
+                temp=temp->next;
+                fprintf (fpIR , "%s " , temp->str);
+                temp=temp->next;
+                fprintf (fpIR , "T%d\n\n" , name_index());
+                num++;
+                go_end();
+            }
+        }
+<<<<<<< HEAD
+        else if (strcmp(temp->str, "if")==0){
+            IR_if();
+        }
+        else if (strcmp(temp->str, "while")==0){
+            IR_while ();
+            temp=temp->back;
+        }
+=======
+
+        else if (strcmp(temp->str, "if")==0){
+            IR_if();
+        }
+>>>>>>> 7b52b41d562f9a2fa19f80c0393477e83efa3eb6
+        else if (strcmp(temp->str , "void") == 0){
+            fprintf(fpIR, "PROCEDURE MAIN\nBEGIN\n\n");
+            temp = temp->next;
+            temp = temp->next;
+            temp = temp->next;
+            temp = temp->next;
+<<<<<<< HEAD
         }
         if (temp->str[0]!='?')
             temp=temp->next;
     }
+=======
+            temp = temp->next;
+        }
+
+
+        if (temp->str[0]!='?')
+            temp=temp->next;
+
+
+
+    }
+
+printf("test");
+
+>>>>>>> 7b52b41d562f9a2fa19f80c0393477e83efa3eb6
 }
