@@ -1,0 +1,17 @@
+# include " decelerations.h "
+
+void main ( )
+{
+	int x = 5 ;
+	int y = 8 ;
+
+	if ( y > x )
+	{
+		y = y - x ;
+	}
+
+	y = y * 2 ;
+	x = y ;
+
+	return ;
+}
